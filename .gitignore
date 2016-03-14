@@ -1,0 +1,14 @@
+/bower_components/
+/dist/
+/node_modules/
+*.sublime-project
+*.sublime-workspace
+*.log
+/temp/
+.DS_Store
+stats.json
+/screenshots/
+/visreg/img/compare/
+/visreg/img/diff/
+/config/local.js
+/config/debug.js

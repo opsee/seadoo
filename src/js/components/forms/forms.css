@@ -1,0 +1,116 @@
+:global .form-group {
+  border: none;
+  position: relative;
+  padding:0;
+  margin:0;
+}
+:global .form-group.search-group {
+  margin-top: 4em;
+}
+:global .form-group .label {
+  transition: color var(--transitionEaseOut);
+  color: var(--colorText2);
+  display: block;
+  font-size: 0.875em;
+  font-weight: 300;
+  left: 0;
+  margin-bottom: 0;
+  padding: 0.5em 0;
+  width: 100%;
+}
+:global .form-group .icon {
+  bottom: 0.75em;
+  right: 1.25em;
+  position: absolute;
+}
+:global .form-group .dropdown-toggle .form-group [dropdown-toggle] {
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: var(--colorGray9);
+  border-radius: 0;
+  font-weight: 300;
+  text-align: left;
+  text-transform: none;
+  position: relative;
+  overflow-x: hidden;
+}
+:global .form-group .dropdown-toggle:hover .form-group [dropdown-toggle]:hover {
+  background-color: black;
+}
+:global .form-group .dropdown-toggle:active, :global .form-group .dropdown-toggle:focus, :global .form-group [dropdown-toggle]:active .form-group [dropdown-toggle]:focus {
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: black;
+  outline: none;
+}
+:global .form-group .dropdown-toggle .icon .form-group [dropdown-toggle] .icon {
+  fill: var(--colorText2);
+  position: absolute;
+  right: 0.3em;
+  top: 0;
+  width: 1.6em;
+  height: 2.1em;
+}
+:global .form-group .dropdown-menu {
+  width: 100%;
+}
+:global .form-group .dropdown-menu button {
+  border: 0;
+  background: black;
+  width: 100%;
+  text-align: left;
+}
+:global .form-group .dropdown-menu button:focus, :global .form-group .dropdown-menu button:active .form-group .dropdown-menu button:hover {
+  background: var(--colorPrimary);
+}
+:global .form-group .dropdown-menu > li > * {
+  font-weight: 300;
+}
+:global .form-group .form-subdomain {
+  transition: height var(--transitionEaseOut);
+  background-color: var(--colorGray9);
+  display: block;
+  padding: 0.25em 0.5em;
+}
+
+:global .input-container:hover ~ label .input-container:active ~ label {
+  color: var(--colorGray2);
+}
+:global .input-container:hover ~ .icon .input-container:active ~ .icon {
+  fill: var(--colorGray2);
+}
+
+input, textarea {
+  box-shadow: none;
+  transition: background-color var(--transitionEaseOut);
+  background-color: var(--colorGray9);
+  border: none;
+  color: var(--colorText);
+  width: 100%;
+  padding: 0.75em 0;
+  text-indent: 0.5em;
+}
+
+:global input[type='text']::placeholder, :global input[type='number']::placeholder, :global input[type='email']::placeholder input[type='password']::placeholder {
+  color: var(--colorText2);
+}
+
+input:focus, textarea:focus{
+  background-color: black;
+  outline: none;
+}
+
+:global .form-control.has-content, :global .form-control.error, :global input[type='text'].has-content, :global input[type='text'].error, :global input[type='number'].has-content, :global input[type='number'].error, :global input[type='email'].has-content, :global input[type='email'].error, :global input[type='password'].has-content input[type='password'].error {
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+:global .form-message {
+  color: #f05223;
+  font-weight: 700;
+  transition: transform var(--transitionEaseOut), opacity var(--transitionEaseOut), visibility var(--transitionEaseOut);
+  margin-left: 0.6em;
+}
+:global .form-message.form-message-good {
+  color: var(--colorSuccess);
+}

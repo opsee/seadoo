@@ -1,0 +1,25 @@
+dependencies:
+  override:
+    - npm install -g webpack casperjs eslint
+    - npm install
+    - docker info
+    - npm run deploy
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS quay.io
+machine:
+  services:
+    - docker
+  node:
+    version: 5.0.0
+test:
+  override:
+    - docker run -d -p 8080:80 quay.io/opsee/seadoo:latest; sleep 10;
+    - curl http://localhost:8080/
+    - casperjs test util/test-deploy.js
+    - docker tag quay.io/opsee/seadoo quay.io/opsee/seadoo:$CIRCLE_SHA1
+    - docker push quay.io/opsee/seadoo:$CIRCLE_SHA1
+deployment:
+  hub:
+    branch: master
+    owner: opsee
+    commands:
+      - docker push quay.io/opsee/seadoo:latest

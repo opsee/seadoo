@@ -1,0 +1,387 @@
+.btn {
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0.25em;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.42857;
+  margin:0;
+  padding: 0.5em;
+  text-align: center;
+  text-transform: capitalize;
+  touch-action: manipulation;
+  transition: background var(--transitionEaseOut), color var(--transitionEaseOut), border-color var(--transitionEaseOut), width var(--transitionEaseOut);
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+.btn svg {
+  transition: fill var(--transitionEaseOut)
+}
+.btn:hover svg, .btn:active svg {
+  fill: white;
+}
+
+.btn:focus, .btn:active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn:hover, .btn:focus {
+  color: var(--colorText);
+  text-decoration: none;
+}
+.btn:active{
+  background-image: none;
+  box-shadow: none;
+}
+.btn[disabled]{
+  cursor: not-allowed;
+  opacity: 0.65;
+  box-shadow: none;
+  color: var(--colorText2) !important;
+  pointer-events: none;
+  background: var(--colorGray8);
+}
+
+.btnDefault {
+  composes: btn;
+  color: white;
+  background: var(--colorText2);
+}
+.btnDefault:hover {
+  color: white;
+  background: color(var(--colorText2) shade(20%));
+}
+.btnDefault:active {
+  background: color(var(--colorText2) shade(40%));
+}
+.btnDefault[disabled], .btnDefault[disabled]:hover, .btnDefault[disabled]:focus, .btnDefault[disabled]:active {
+  background: var(--colorText2);
+}
+
+.btnPrimary {
+  composes: btn;
+  color: #fff;
+  background: var(--colorPrimary);
+}
+.btnPrimary:hover {
+  color: #fff;
+  background: color(var(--colorPrimary) shade(20%));
+}
+.btnPrimary:active {
+  background: color(var(--colorPrimary) shade(40%));
+}
+.btnPrimary[disabled], .btnPrimary[disabled]:hover, .btnPrimary[disabled]:focus, .btnPrimary[disabled]:active {
+  background: var(--colorPrimary);
+}
+
+.btnSuccess {
+  composes: btn;
+  color: #fff;
+  background: var(--colorSuccess);
+}
+.btnSuccess:hover {
+  color: #fff;
+  background: color(var(--colorSuccess) shade(20%));
+}
+.btnSuccess:active {
+  background: color(var(--colorSuccess) shade(40%));
+}
+.btnSuccess[disabled], .btnSuccess[disabled]:hover, .btnSuccess[disabled]:focus, .btnSuccess[disabled]:active {
+  background: var(--colorSuccess);
+}
+
+.btnInfo {
+  composes: btn;
+  color: #fff;
+  background: var(--colorInfo);
+}
+.btnInfo:hover {
+  color: #fff;
+  background: color(var(--colorInfo) shade(20%));
+}
+.btnInfo:active {
+  background: color(var(--colorInfo) shade(40%));
+}
+.btnInfo[disabled], .btnInfo[disabled]:hover, .btnInfo[disabled]:focus, .btnInfo[disabled]:active {
+  background: var(--colorInfo);
+}
+
+.btnWarning {
+  composes: btn;
+  color: #fff;
+  background: var(--colorWarning);
+}
+.btnWarning:hover {
+  color: #fff;
+  background: color(var(--colorWarning) shade(20%));
+}
+.btnWarning:active {
+  background: color(var(--colorWarning) shade(40%));
+}
+.btnWarning[disabled], .btnWarning[disabled]:hover, .btnWarning[disabled]:focus, .btnWarning[disabled]:active {
+  background: var(--colorWarning);
+}
+
+.btnDanger {
+  composes: btn;
+  color: #fff;
+  background: var(--colorDanger);
+}
+.btnDanger:hover {
+  color: #fff;
+  background: color(var(--colorDanger) shade(20%));
+}
+.btnDanger:active {
+  background: color(var(--colorDanger) shade(40%));
+}
+.btnDanger[disabled], .btnDanger[disabled]:hover, .btnDanger[disabled]:focus, .btnDanger[disabled]:active {
+  background: var(--colorDanger);
+}
+
+.btnDark {
+  composes: btn;
+  color: #fff;
+  background: var(--colorGray9);
+}
+.btnDark:hover {
+  color: #fff;
+  background: black;
+}
+.btnDark:active {
+  color: #fff;
+  background: var(--colorGray8);
+}
+
+.btnNoPad {
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btnFlat {
+  composes: btn;
+  background: transparent;
+  border-color: var(--colorText);
+  box-shadow: none;
+  color: var(--colorText);
+}
+.btnFlat:focus {
+  background-color: transparent;
+}
+.btnFlat:hover{
+  background: var(--colorText2);
+  border-color: transparent;
+  color: white !important;
+}
+.btnFlat:active{
+  background: color(var(--colorText2) shade(40%));
+}
+.btnFlat[disabled]{
+  border-color: var(--colorText) !important;
+}
+
+.btnFlat.btnBlock, .btnFlat.btnPrimary.btnBlock, .btnFlat.btnSuccess.btnBlock, .btnFlat.btnWarning.btnBlock, .btnFlat.btnInfo.btnBlock, .btnFlat.btnDanger.btnBlock {
+  border-color: transparent;
+}
+.btnFlat[disabled], .btnFlat.btnPrimary[disabled], .btnFlat.btnSuccess[disabled], .btnFlat.btnInfo[disabled], .btnFlat.btnDanger[disabled]{
+  background: none;
+  border-color: var(--colorText2);
+}
+.btnFlat.btnPrimary {
+  border-color: var(--colorPrimary);
+  color: var(--colorPrimary);
+}
+.btnFlat.btnPrimary:hover {
+  background: var(--colorPrimary);
+}
+.btnFlat.btnPrimary:active {
+  background: color(var(--colorPrimary) shade(40%));
+}
+.btnFlat.btnSuccess {
+  border-color: var(--colorSuccess);
+  color: var(--colorSuccess);
+}
+.btnFlat.btnSuccess:hover {
+  background: var(--colorSuccess);
+}
+.btnFlat.btnSuccess:active {
+  background: color(var(--colorSuccess) shade(40%));
+}
+.btnFlat.btnWarning {
+  border-color: var(--colorWarning);
+  color: var(--colorWarning);
+}
+.btnFlat.btnWarning:hover {
+  background: var(--colorWarning);
+}
+.btnFlat.btnWarning:active {
+  background: color(var(--colorWarning) shade(40%));
+}
+.btnFlat.btnDanger {
+  border-color: var(--colorDanger);
+  color: var(--colorDanger);
+}
+.btnFlat.btnDanger:hover {
+  background: var(--colorDanger);
+}
+.btnFlat.btnDanger:active {
+  background: color(var(--colorDanger) shade(40%));
+}
+.btnFlat.btnInfo {
+  border-color: var(--colorInfo);
+  color: var(--colorInfo);
+}
+.btnFlat.btnInfo:hover {
+  background: var(--colorInfo);
+}
+.btnFlat.btnInfo:active {
+  background: color(var(--colorInfo) shade(40%));
+}
+
+.btnBlock {
+  border-radius: 0;
+  display: block;
+  width: 100%;
+}
+
+.btnFab {
+  composes: btn;
+  box-shadow: var(--shadowBottomZ1);
+  transition: transform var(--transitionEaseOut), background var(--transitionEaseOut);
+  z-index: 20;
+  border: none;
+  line-height: 5.6rem;
+  min-width: 0;
+  padding: 0 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  vertical-align: middle;
+  position: relative;
+  border-radius: 50%;
+  background-clip: padding-box;
+  overflow: hidden;
+  background-size: 24px 24px;
+  background-position: 50% 50%;
+}
+.btnFab:hover,.btnFab:active {
+  transform: scale(1.2) rotate(-90deg);
+}
+
+.btnIcon {
+  background: transparent;
+  border: none;
+  line-height: 40px;
+  min-width: 0;
+  padding: 0 0;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-clip: padding-box;
+  overflow: hidden;
+  position: relative;
+}
+.btnIcon:hover, .btnIcon:active, .btnIcon:focus {
+  background: var(--colorGray8);
+}
+
+.btnSecondary {
+  margin: 0 0.625em 0 0;
+}
+
+.btnDropdown{
+  text-transform: none;
+  text-align:left;
+  font-weight:100;
+  min-height:46px;
+  box-shadow:none;
+}
+
+.btnLeft{
+  text-align: left;
+}
+.btnRight{
+  text-align:right;
+}
+
+.btnSm{
+  padding:.2em;
+  line-height:1.2em;
+}
+
+.inner{
+  position: relative;
+}
+
+.progress {
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  width:101%;
+  height:100%;
+  z-index:0;
+  transform: translateX(-102%);
+}
+
+.progressPressing {
+  transition: 1500ms linear transform;
+  transform: translateX(0);
+}
+
+.progressPrimary {
+  composes: progress;
+  background: color(var(--colorPrimary) shade(70%));
+}
+
+.progressPrimaryPressing {
+  composes: progressPrimary;
+  composes: progressPressing;
+}
+
+.progressSuccess {
+  composes: progress;
+  background: color(var(--colorSuccess) shade(70%));
+}
+
+.progressSuccessPressing {
+  composes: progressSuccess;
+  composes: progressPressing;
+}
+
+.progressDanger {
+  composes: progress;
+  background: color(var(--colorDanger) shade(70%));
+}
+
+.progressDangerPressing {
+  composes: progressDanger;
+  composes: progressPressing;
+}
+
+.progressInfo {
+  composes: progress;
+  background: color(var(--colorInfo) shade(70%));
+}
+
+.progressInfoPressing {
+  composes: progressInfo;
+  composes: progressPressing;
+}
+
+.progressWarning {
+  composes: progress;
+  background: color(var(--colorWarning) shade(70%));
+}
+
+.progressWarningPressing {
+  composes: progressWarning;
+  composes: progressPressing;
+}

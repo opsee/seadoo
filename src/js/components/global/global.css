@@ -1,0 +1,327 @@
+body {
+  background: var(--colorBackground);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: var(--fontGotham);
+  line-height: 1.42857;
+  color: var(--colorText);
+}
+
+body ::selection {
+  background: #90CAF9;
+}
+
+body ::-moz-selection {
+  background: #90CAF9;
+}
+
+.meat{
+  position: relative;
+  transition:transform var(--transitionEaseOut);
+  z-index:3;
+}
+
+.meatUp{
+  composes:meat;
+}
+
+@media (min-width: 768px) {
+  .meatUp{
+    composes: meat;
+    transform:translateY(-55px);
+  }
+}
+
+a {
+  color: var(--colorPrimary);
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover, a:focus {
+  color: #0c80df;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+hr {
+  margin-top: 22px;
+  margin-bottom: 22px;
+  border: 0;
+  border-top: 1px solid var(--colorGray2);
+}
+
+code,
+kbd,
+pre,
+samp {
+  font: var(--fontMono);
+}
+
+:global .open > a {
+  outline: 0;
+}
+
+:global .pull-right {
+  float: right !important;
+}
+
+:global .pull-left {
+  float: left !important;
+}
+
+:global .hide {
+  display: none !important;
+}
+
+:global .show {
+  display: block !important;
+}
+
+:global .invisible {
+  visibility: hidden;
+}
+
+:global .text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+:global .hidden {
+  display: none !important;
+}
+
+small {
+  font-size: 87%;
+}
+
+:global .small {
+  font-size: 87%;
+}
+
+:global .mark {
+  background-color: #ff9d0c;
+  padding: .2em;
+}
+
+:global .text-muted {
+  color: var(--colorText2);
+}
+
+:global .text-info {
+  color: var(--colorInfo);
+}
+
+a.text-info:hover,
+a.text-info:focus {
+  color: #7850bf;
+}
+
+:global .text-warning {
+  color: #FFA726;
+}
+
+a.text-warning:hover,
+a.text-warning:focus {
+  color: #f29000;
+}
+
+:global .text-danger {
+  color: #f05223;
+}
+
+a.text-danger:hover,
+a.text-danger:focus {
+  color: #d23b0e;
+}
+
+:global .list-unstyled, 
+:global .react-autosuggest__suggestions {
+  padding-left: 0;
+  list-style: none;
+}
+
+:global .list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
+:global .list-inline > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+svg {
+  transition: border var(--transitionEaseOut);
+}
+
+:global .step-image {
+  display: block;
+  margin: 0 auto 2em auto;
+  width: 80%;
+}
+@media (min-width: 768px) {
+  :global .step-image {
+    width: 60%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+:global .icon {
+  transition: fill var(--transitionEaseOut);
+  fill: var(--colorText2);
+  height: 1.25em;
+  width: 1.25em;
+}
+
+:global .react-autosuggest__suggestion {
+  display: block;
+  padding: 3px 20px;
+}
+
+:global .react-autosuggest__suggestion--focused {
+  background: var(--colorPrimary);
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.4;
+}
+
+:global .text-secondary {
+  color: var(--colorText2);
+}
+
+:global .text-sm {
+  font-size: .8em;
+}
+
+:global .md-title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+:global .line-height-1 {
+  line-height: 1.3em;
+}
+
+hr {
+  border-color: var(--colorGray8);
+}
+
+:global #main {
+  padding-bottom: 5em;
+}
+
+/* Have to set height explicity on ui-view,
+to prevent collapsing during animation*/
+:global .ui-view-container {
+  position: relative;
+}
+
+:global .page-enter, :global .page-leave {
+  transition: all var(--transitionEaseOut);
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+:global .page-enter {
+  transform: translateY(15px);
+}
+
+:global .page-enter, :global .page-leave-active {
+  opacity: 0;
+}
+
+:global .page-enter-active, :global .page-leave {
+  opacity: 1;
+  transform: none;
+}
+
+:global .page-leave-active {
+  transform: translateY(-15px);
+  opacity: 0;
+}
+
+:global .slide-forward-enter .slide-forward-leave {
+  /*transition: all var(--transitionEaseOut);*/
+  transition: all 15000ms;
+}
+
+:global .slide-forward-leave {
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+:global .slide-forward-enter {
+  transform: translateX(101%);
+}
+
+:global .slide-forward-enter .slide-forward-leave-active {
+  opacity: 0;
+}
+
+:global .slide-forward-enter-active .slide-forward-leave {
+  opacity: 1;
+  transform: none;
+}
+
+:global .slide-forward-leave-active {
+  transform: translateX(-101%);
+  opacity: 0;
+}
+
+:global .slide-reverse-enter .slide-reverse-leave {
+  /*transition: all var(--transitionEaseOut);*/
+  transition: all 15000ms;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+:global .slide-reverse-enter {
+  transform: translateX(-101%);
+}
+
+:global .slide-reverse-enter .slide-reverse-leave-active {
+  opacity: 0;
+}
+
+:global .slide-reverse-enter-active .slide-reverse-leave {
+  opacity: 1;
+  transform: none;
+}
+
+:global .slide-reverse-leave-active {
+  transform: translateX(101%);
+  opacity: 0;
+}
+
+:global .user-select-none {
+  user-select: none;
+}
+
+:global .dropdown-toggle {
+  min-height:46px;
+}

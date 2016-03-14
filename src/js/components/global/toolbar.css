@@ -1,0 +1,30 @@
+.outer{
+  background-color: var(--colorGray8);
+  font-size: 2rem;
+  width: 100%;
+  margin-bottom: 2em;
+  transition: background-color var(--transitionEaseOut);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+.inner{
+  padding-top: 1em;
+  padding-bottom: 1.2em;
+  position: relative;
+}
+
+.btn{
+  position: absolute;
+  right:.6em;
+}
+
+.btnDefault{
+  composes: btn;
+  bottom:-1.4em;
+}
+
+.btnMidRight{
+  composes: btn;
+  top:50%;
+  margin-top: -24px;
+}

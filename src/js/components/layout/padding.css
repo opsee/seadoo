@@ -1,0 +1,131 @@
+.none {
+  padding: 0 0 0 0;
+}
+
+.phalf{
+  padding:.5rem;
+}
+.p1{
+  padding:1rem;
+}
+.p2{
+  padding:2rem;
+}
+.p3{
+  padding:3rem;
+}
+.p4{
+  padding:4rem;
+}
+
+.pbhalf{
+  padding-bottom: 0.5rem;
+}
+.pb{
+  padding-bottom: 1rem;
+}
+.pb2{
+  padding-bottom: 2rem;
+}
+.pb3{
+  padding-bottom: 3rem;
+}
+.pb4{
+  padding-bottom: 4rem;
+}
+
+.pthalf{
+  padding-top: 0.5rem;
+}
+.pt{
+  padding-top: 1rem;
+}
+.pt2{
+  padding-top: 2rem;
+}
+.pt3{
+  padding-top: 3rem;
+}
+.pt4{
+  padding-top: 4rem;
+}
+
+.ptbhalf{
+  composes: pbhalf pthalf;
+}
+.ptb{
+  composes: pb pt;
+}
+.ptb2{
+  composes: pb2 pt2;
+}
+.ptb3{
+  composes: pb3 pt3;
+}
+.ptb4{
+  composes: pb4 pt4;
+}
+
+.plhalf{
+  padding-left: 0.5rem;
+}
+.pl{
+  padding-left: 1rem;
+}
+.pl2{
+  padding-left: 2rem;
+}
+.pl3{
+  padding-left: 3rem;
+}
+.pl4{
+  padding-left: 4rem;
+}
+
+.prhalf{
+  padding-right: 0.5rem;
+}
+.pr{
+  padding-right: 1rem;
+}
+.pr2{
+  padding-right: 2rem;
+}
+.pr3{
+  padding-right: 3rem;
+}
+.pr4{
+  padding-right: 4rem;
+}
+
+.plrhalf{
+  composes: plhalf prhalf;
+}
+.plr{
+  composes: pl pr;
+}
+.plr2{
+  composes: pl2 pr2;
+}
+.plr3{
+  composes: pl3 pr3;
+}
+.plr4{
+  composes: pl4 pr4;
+}
+
+.pahalf{
+  composes: ptbhalf plrhalf;
+}
+.pa{
+  composes: ptb plr;
+}
+.pa2{
+  composes: ptb2 plr2;
+}
+.pa3{
+  composes: ptb3 plr3;
+}
+.pa4{
+  composes: ptb4 plr4;
+}

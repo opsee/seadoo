@@ -1,0 +1,41 @@
+.form{
+  position: relative;
+}
+
+.form input{
+  position: relative;
+  z-index:2;
+  padding-right:5rem;
+}
+
+.form input:-webkit-autofill {
+  background-color: var(--colorGray9) !important;
+}
+
+.form :global .form-group{
+  position: static;
+}
+
+.form :global .form-group > div{
+  display:flex;
+}
+
+.form :global .label{
+  transition: background-color var(--transitionEaseOut) !important;
+  position: absolute;
+  display: block;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: var(--colorGray9) !important;
+}
+
+.form input:focus ~ label{
+  background:black !important;
+}
+
+.iconLabel{
+  position: relative;
+  z-index:2;
+}

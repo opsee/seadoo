@@ -1,0 +1,13 @@
+.outer{
+  flex-direction:column;
+  position: relative;
+}
+
+.menu{
+  position: absolute;
+  top: 46px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background: var(--colorGray9);
+}

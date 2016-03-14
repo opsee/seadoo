@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html{% if (o.htmlWebpackPlugin.files.manifest) { %} manifest="{%= o.htmlWebpackPlugin.files.manifest %}"{% } %}>
+  <head>
+    <meta charset="UTF-8">
+    <title>Opsee</title>
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6076032/646208/css/fonts.css" />
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/img/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/img/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="Opsee"/>
+    <meta name="msapplication-TileColor" content="#00589B" />
+    <meta name="msapplication-TileImage" content="/img/favicon/mstile-144x144.png" />
+    <meta name="viewport" content="width=device-width">
+    {% if (o.htmlWebpackPlugin.files.favicon) { %}
+    <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
+    {% } %}
+    {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+    <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
+    {% } %}
+    <script>
+    //prototype.bind shim (mostly for capserjs CI testing)
+    !function(){var a=Array.prototype,b=a.slice,c=Function.prototype;c.bind||(c.bind=function(a){function e(){var e=c.prototype&&this instanceof c;return c.apply(!e&&a||this,d.concat(b.call(arguments)))}var c=this,d=b.call(arguments,1);return e.prototype=c.prototype,e})}();
+    </script>
+    <script>
+    //Make sure browser is up-to-snuff
+    (function(){function h(){var e=["webkit","moz","ms","o"];if ("hidden"in document)return"hidden";for(var r=0;r<e.length;r++)if (e[r]+"Hidden"in document)return e[r]+"Hidden";return null}h()||alert("Your browser is not supported at this time. Try a fresh version of Chrome, Firefox, or Safari.")})();
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    </script>
+    <script crossorigin="anonymous" src="https://app.launchdarkly.com/snippet/features/566b1d8e082f9806ea00000f.js"></script>
+    <script>!function(e,t){e.ldclient=e.ldclient||{},e.ldclient.q||(e.ldclient.q=[]),e.ldclient.push_event=function(t,n,i){e.ldclient.q.push({kind:t,key:n,data:i,url:e.location.href,creationDate:new Date})},e.ldclient.track=e.ldclient.send_event=function(t,n){if("string"!=typeof t)throw"Event key must be a string";e.ldclient.push_event("custom",t,n)},e.ldclient.set_user=e.ldclient.identify=e.ldclient.identify||function(t){e.ldclient.q.push({kind:"identify",key:t.key,user:t,creationDate:new Date}),e.ldclient.user=t};var n=e.document.createElement("script");n.type="text/javascript",n.async=!0,n.crossorigin="anonymous",n.src=t;var i=e.document.getElementsByTagName("script")[0];i.parentNode.insertBefore(n,i)}(this,"https://app.launchdarkly.com/snippet/events/v1/566b1d8e082f9806ea00000f.js");</script>
+    <script src="//js-yellerapp.a.ssl.fastly.net/yeller.js"></script>
+  </head>
+  <body>
+    <div id="main"></div>
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+    {% } %}
+  </body>
+</html>

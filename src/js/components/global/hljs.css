@@ -1,0 +1,106 @@
+:global .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: var(--colorGray9);
+  -webkit-text-size-adjust: none;
+  font-size: 14px;
+  /* Track */
+  /* Handle */
+}
+:global .hljs::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+:global .hljs::-webkit-scrollbar-corner {
+  background: black;
+}
+:global .hljs::-webkit-scrollbar-track {
+  background: black;
+}
+:global .hljs::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: #757575;
+  cursor: pointer;
+}
+
+:global .hljs-keyword,
+:global .hljs-literal,
+:global .hljs-change,
+:global .hljs-winutils,
+:global .hljs-flow,
+:global .nginx .hljs-title,
+:global .tex .hljs-special {
+  color: white;
+}
+
+:global .hljs-literal {
+  color: #FFA726;
+}
+
+:global .hljs-string {
+  color: var(--colorPrimary);
+}
+
+:global .hljs-number {
+  color: var(--colorWarning);
+}
+
+:global .hljs,
+:global .hljs-subst {
+  color: #ddd;
+}
+
+:global .hljs-title,
+:global .hljs-type,
+:global .ini .hljs-title,
+:global .hljs-tag .hljs-value,
+:global .css .hljs-rule .hljs-value,
+:global .hljs-preprocessor,
+:global .hljs-pragma,
+:global .ruby .hljs-symbol,
+:global .ruby .hljs-symbol .hljs-string,
+:global .ruby .hljs-class .hljs-parent,
+:global .hljs-built_in,
+:global .django .hljs-template_tag,
+:global .django .hljs-variable,
+:global .smalltalk .hljs-class,
+:global .ruby .hljs-string,
+:global .django .hljs-filter .hljs-argument,
+:global .smalltalk .hljs-localvars,
+:global .smalltalk .hljs-array,
+:global .hljs-attr_selector,
+:global .hljs-pseudo,
+:global .hljs-addition,
+:global .hljs-stream,
+:global .hljs-envvar,
+:global .apache .hljs-tag,
+:global .apache .hljs-cbracket,
+:global .tex .hljs-command,
+:global .hljs-prompt,
+:global .coffeescript .hljs-attribute,
+:global .hljs-name {
+  color: #d88;
+}
+
+:global .hljs-comment,
+:global .hljs-annotation,
+:global .hljs-decorator,
+:global .hljs-pi,
+:global .hljs-doctype,
+:global .hljs-deletion,
+:global .hljs-shebang,
+:global .apache .hljs-sqbracket,
+:global .tex .hljs-formula {
+  color: #777;
+}
+
+:global .coffeescript .javascript,
+:global .javascript .xml,
+:global .tex .hljs-formula,
+:global .xml .javascript,
+:global .xml .vbscript,
+:global .xml .css,
+:global .xml .hljs-cdata {
+  opacity: 0.5;
+}

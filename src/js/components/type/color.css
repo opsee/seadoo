@@ -1,0 +1,67 @@
+.primary, .primary:hover, .primary:focus, .primary:active{
+  color:var(--colorPrimary);
+}
+
+.success, .success:hover, .success:focus, .success:active{
+  color:var(--colorSuccess);
+}
+
+.info, .info:hover, .info:focus, .info:active{
+  color:var(--colorInfo);
+}
+
+.warning, .warning:hover, .warning:focus, .warning:active{
+  color:var(--colorWarning);
+}
+
+.danger, .danger:hover, .danger:focus, .danger:active{
+  color:var(--colorDanger);
+}
+
+.error, .error:hover, .error:focus, .error:active{
+  color:var(--colorError);
+}
+
+.text, .text:hover, .text:focus, .text:active{
+  color:var(--colorText);
+}
+
+.gray50, .gray50:hover, .gray50:focus, .gray50:active{
+  color:var(--colorGray);
+}
+
+.gray100, .gray100:hover, .gray100:focus, .gray100:active{
+  color:var(--colorGray1);
+}
+
+.gray200, .gray200:hover, .gray200:focus, .gray200:active{
+  color:var(--colorGray2);
+}
+
+.gray300, .gray300:hover, .gray300:focus, .gray300:active{
+  color:var(--colorGray3);
+}
+
+.gray400, .gray400:hover, .gray400:focus, .gray400:active{
+  color:var(--colorGray4);
+}
+
+.gray500, .gray500:hover, .gray500:focus, .gray500:active{
+  color:var(--colorGray5);
+}
+
+.gray600, .gray600:hover, .gray600:focus, .gray600:active{
+  color:var(--colorGray6);
+}
+
+.gray700, .gray700:hover, .gray700:focus, .gray700:active{
+  color:var(--colorGray7);
+}
+
+.gray800, .gray800:hover, .gray800:focus, .gray800:active{
+  color:var(--colorGray8);
+}
+
+.gray900, .gray900:hover, .gray900:focus, .gray900:active{
+  color:var(--colorGray9);
+}

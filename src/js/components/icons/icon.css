@@ -1,0 +1,81 @@
+.btn{
+  /*position: absolute;
+  left:50%;
+  top:50%;
+  margin:-12px 0 0 -12px;*/
+  position: relative;
+  top: 0.6rem;
+}
+
+.inline{
+  display: inline-block;
+  height:1.3em;
+  width:1.3em;
+  vertical-align: text-bottom;
+}
+
+.nav{
+  display: inline-block;
+  height:18px;
+  width: 18px;
+  vertical-align: text-bottom;
+  fill:white;
+}
+
+.fillPrimary{
+  fill:var(--colorPrimary);
+}
+.fillSuccess{
+  fill:var(--colorSuccess);
+}
+.fillInfo{
+  fill:var(--colorInfo);
+}
+.fillWarning{
+  fill:var(--colorWarning);
+}
+.fillDanger{
+  fill:var(--colorDanger);
+}
+.fillError{
+  fill:var(--colorError);
+}
+.fillGray50{
+  fill:var(--colorGray);
+}
+.fillGray100{
+  fill:var(--colorGray1);
+}
+.fillGray200{
+  fill:var(--colorGray2);
+}
+.fillGray300{
+  fill:var(--colorGray3);
+}
+.fillGray400{
+  fill:var(--colorGray4);
+}
+.fillGray500{
+  fill:var(--colorGray5);
+}
+.fillGray600{
+  fill:var(--colorGray6);
+}
+.fillGray700{
+  fill:var(--colorGray7);
+}
+.fillGray800{
+  fill:var(--colorGray8);
+}
+.fillGray900{
+  fill:var(--colorGray9);
+}
+.fillText{
+  fill:var(--colorText);
+}
+.fillTextSecondary{
+  fill:var(--colorText2);
+}
+.fillHeader{
+  fill:var(--colorHeader);
+}

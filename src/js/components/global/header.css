@@ -1,0 +1,104 @@
+.header{
+  background:var(--colorHeader);
+  position: fixed;
+  bottom:0;
+  left:0;
+  user-select: none;
+  z-index: 10;
+  width:100%;
+}
+
+@media (min-width: 768px) {
+  .header{
+    z-index:1;
+  }
+}
+
+@media (max-width: 768px){
+  .headerHide{
+    composes:header;
+    transform:translateY(105%);
+  }
+}
+.navbar{
+  background: none;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+}
+.navbarTitle {
+  display: block;
+  margin-top: 0.25em;
+}
+.navbar.navbar-sm {
+  font-size: .8em;
+}
+.navbarIcon {
+  transition: fill var(--transitionEaseOut);
+  display: block;
+  fill: var(--colorText2);
+  height: 24px;
+  margin: 0 auto;
+  width: 24px;
+}
+.navbarList {
+  margin: 0 0;
+  padding: 0 0;
+}
+.navbarItem {
+  display: inline-block;
+  width: 25%;
+}
+.navbarLink {
+  transition: color var(--transitionEaseOut);
+  color: var(--colorText2);
+  display: block;
+  font-size: 0.75em;
+  overflow: hidden;
+  padding: 0.5em;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.navbarLink svg {
+  transition: fill var(--transitionEaseOut);
+  fill: var(--colorText2);
+}
+.navbarLink:hover, .navbarLink:active, .navbarLink:focus {
+  color: var(--colorText);
+  background-color: transparent !important;
+  text-decoration: none;
+}
+.navbarLink:hover svg, .navbarLink:active svg, .navbarLink:focus svg {
+  fill: var(--colorText);
+}
+.navbarLink:active, .navbarLink:global(.active) {
+  color: white;
+}
+.navbarLink:active svg, .navbarLink:global(.active) svg{
+  fill: white !important;
+}
+@media (min-width: 768px) {
+  .header{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    bottom:auto;
+    position: relative;
+  }
+  .navbarItem {
+    width: auto;
+  }
+  .navbarIcon {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    vertical-align: text-bottom;
+  }
+  .navbarTitle {
+    display: inline;
+  }
+  .navbarLink {
+    font-size: 1em;
+    padding: 1em;
+    text-align: left;
+  }
+}
