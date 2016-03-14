@@ -12,7 +12,7 @@
   "devDependencies": {
     "assets-webpack-plugin": "^3.0.0",
     "babel-core": "^6.2.1",
-    "babel-eslint": "^4.1.6",
+    "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.1.4",
     "babel-plugin-transform-runtime": "^6.1.18",
@@ -25,7 +25,7 @@
     "connect-modrewrite": "^0.8.2",
     "css-loader": "^0.23.1",
     "eslint": "~2.2.0",
-    "eslint-loader": "^1.1.0",
+    "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^3.7.1",
     "exports-loader": "^0.6.2",
     "express": "^4.13.3",
@@ -76,12 +76,10 @@
     ]
   },
   "dependencies": {
-    "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.4",
     "classnames": "^2.1.5",
     "emissary": "github:opsee/emissary#66db4f5dcadb6e6d377f194c71b574411f6560be",
     "es6-promise": "^3.0.2",
-    "eslint-loader": "^1.3.0",
     "flexboxgrid": "^6.3.0",
     "flux-standard-action": "^0.6.0",
     "fuzzy": "^0.1.1",
@@ -92,7 +90,6 @@
     "lodash": "^4.6.1",
     "moment": "^2.11.2",
     "newforms": "^0.13.2",
-    "opsee-style": "git+ssh://git@github.com/opsee/style.git#1.1.0",
     "path": "^0.11.14",
     "postcss-modules": "^0.3.0",
     "q": "^1.4.1",

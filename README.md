@@ -5,6 +5,7 @@
 Ride the wave of administration
 
 ##Prerequisites
+- Get on the VPN
 - Node 5.5.0
 
 ## Running
