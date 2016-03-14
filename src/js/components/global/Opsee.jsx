@@ -114,8 +114,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   appActions: bindActionCreators(appActions, dispatch),
-  userActions: bindActionCreators(userActions, dispatch),
-  envActions: bindActionCreators(envActions, dispatch)
+  userActions: bindActionCreators(userActions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Opsee);
