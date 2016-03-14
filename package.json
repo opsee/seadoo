@@ -55,7 +55,7 @@
   "scripts": {
     "start": "node util/rev | node util/server",
     "build": "node util/rev | NODE_ENV=production webpack --bail && cp -r src/fonts/ dist/fonts/",
-    "deploy": "npm run build && docker build -t quay.io/opsee/emissary:latest .",
+    "deploy": "npm run build && docker build -t quay.io/opsee/seadoo:latest .",
     "lint": "eslint src/. --ext .js,.jsx --max-warnings 0 --config ./node_modules/opsee-style/.eslintrc",
     "compare": "node visreg/compare",
     "fix": "npm install",
