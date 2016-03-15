@@ -2,6 +2,8 @@ FROM opsee/nginx
 
 MAINTAINER Greg Poirier <greg@opsee.co>
 
+EXPOSE 9102
+
 RUN mkdir -p /app
 COPY robots.txt dist /app/
 RUN mkdir -p /app/nginx
