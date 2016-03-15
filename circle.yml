@@ -12,8 +12,8 @@ machine:
     version: 5.5.0
 test:
   override:
-    - docker run -d -p 8080:80 quay.io/opsee/seadoo:latest; sleep 10;
-    - curl http://localhost:8080/
+    - docker run -d -p 9102:80 quay.io/opsee/seadoo:latest; sleep 10;
+    - curl http://localhost:9102/
     - casperjs test util/test-deploy.js
     - docker tag quay.io/opsee/seadoo quay.io/opsee/seadoo:$CIRCLE_SHA1
     - docker push quay.io/opsee/seadoo:$CIRCLE_SHA1
