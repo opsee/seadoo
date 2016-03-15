@@ -1,6 +1,5 @@
 import bootstrap from './bootstrap';
 import config from './config';
-import flag from './flag';
 import itemsFilter from './itemsFilter';
 import mixins from './mixins';
 import request from './request';
@@ -13,7 +12,6 @@ import yeller from './yeller';
 export {
   bootstrap,
   config,
-  flag,
   itemsFilter,
   mixins,
   request,

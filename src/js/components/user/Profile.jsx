@@ -9,13 +9,11 @@ import {Button} from '../forms';
 import {Edit, Logout} from '../icons';
 import {Padding} from '../layout';
 import {Heading} from '../type';
-import {flag} from '../../modules';
 import {
   user as actions,
   app as appActions,
   integrations as integrationsActions
 } from '../../actions';
-import {SlackInfo} from '../integrations';
 
 const Profile = React.createClass({
   propTypes: {
@@ -44,17 +42,6 @@ const Profile = React.createClass({
   handleLogout(){
     this.props.actions.logout();
   },
-  renderSlackArea(){
-    if (flag('integrations-slack')){
-      return (
-        <tr>
-          <td><strong>Slack</strong></td>
-          <td><SlackInfo/></td>
-        </tr>
-      );
-    }
-    return null;
-  },
   render() {
     const user = this.props.redux.user.toJS();
     return (
@@ -78,7 +65,6 @@ const Profile = React.createClass({
                     <td><strong>Password</strong></td>
                     <td><Link to="/profile/edit" >Change Your Password</Link></td>
                   </tr>
-                  {this.renderSlackArea()}
                 </Table>
               </Padding>
               <Padding t={3}>

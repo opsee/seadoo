@@ -3,12 +3,9 @@ import _ from 'lodash';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import config from '../../modules/config';
 import {SetInterval} from '../../modules/mixins';
-import {Analytics, Header, MessageModal, Toolbar} from './';
+import {Analytics, Header, MessageModal} from './';
 import DocumentTitle from 'react-document-title';
-import {Alert, Grid, Col} from '../../modules/bootstrap';
-import {Padding} from '../layout';
 /* eslint-disable no-unused-vars */
 import {yeller} from '../../modules';
 
@@ -64,28 +61,9 @@ const Opsee = React.createClass({
   shouldHideNav(){
     return !!(_.find(hideNavList, string => this.props.location.pathname.match(string)));
   },
-  renderSocketError(){
-    return (
-      <div>
-        <Toolbar title="Error"/>
-        <Grid>
-          <Col xs={12}>
-            <Padding t={2}>
-              <Alert bsStyle="danger">
-                Could not connect to Opsee. Attempting to reconnect...
-              </Alert>
-            </Padding>
-          </Col>
-        </Grid>
-      </div>
-    );
-  },
   renderInner(){
     if (!this.props.redux.app.ready){
       return null;
-    }
-    if (this.props.redux.app.socketError && !config.bypassSocketError){
-      return this.renderSocketError();
     }
     return React.cloneElement(this.props.children, _.assign({},
       {

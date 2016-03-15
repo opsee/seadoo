@@ -3,7 +3,6 @@ import {createAction} from 'redux-actions';
 import config from '../modules/config';
 import request from '../modules/request';
 import _ from 'lodash';
-import * as analytics from './analytics';
 import {
   USER_LOGIN,
   USER_LOGOUT,
@@ -28,11 +27,7 @@ export function login(data) {
         .post(`${config.services.auth}/authenticate/password`)
         .send(data)
         .then((res) => {
-          const user = res.body.user;
-          analytics.trackEvent('User', 'login', null, user)(dispatch, state);
-
           resolve(res.body);
-
           //TODO fix this somehow
           setTimeout(() => {
             const string = state().router.location.query.redirect || '/';
@@ -45,7 +40,7 @@ export function login(data) {
 }
 
 export function setPassword(data) {
-  return (dispatch, state) => {
+  return (dispatch) => {
     dispatch({
       type: USER_SET_PASSWORD,
       payload: new Promise((resolve, reject) => {
@@ -54,7 +49,6 @@ export function setPassword(data) {
         .send(data)
         .then((res) => {
           resolve(res.body);
-          analytics.updateUser(res.body.user)(dispatch, state);
           setTimeout(() => {
             dispatch(pushState(null, '/start/tutorial'));
           }, 100);
@@ -65,9 +59,8 @@ export function setPassword(data) {
 }
 
 export function logout(query){
-  return (dispatch, state) => {
+  return (dispatch) => {
     storage.remove('user');
-    analytics.trackEvent('User', 'logout')(dispatch, state);
     dispatch({
       type: USER_LOGOUT
     });
@@ -121,10 +114,6 @@ export function edit(data) {
           setTimeout(() => {
             dispatch(pushState(null, '/profile'));
           }, 100);
-          const user = _.get(res, 'body.user');
-          if (user){
-            analytics.updateUser(user)(dispatch, state);
-          }
         }, reject);
       })
     });
