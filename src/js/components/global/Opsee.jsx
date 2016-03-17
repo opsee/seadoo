@@ -17,7 +17,7 @@ import forms from '../forms/forms.css';
 import grid from '../layout/grid.css';
 import layout from '../layout/layout.css';
 
-import {app as appActions, user as userActions, env as envActions} from '../../actions';
+import {app as appActions, user as userActions} from '../../actions';
 /* eslint-enable no-unused-vars */
 
 const hideNavList = ['^\/start', '^\/login', '^\/check-create', '^\/check\/edit', '^\/check\/.*\/event', '^\/profile\/edit', '^\/password-forgot'];
@@ -34,10 +34,7 @@ const Opsee = React.createClass({
     userActions: PropTypes.shape({
       refresh: PropTypes.func
     }),
-    redux: PropTypes.object,
-    envActions: PropTypes.shape({
-      getBastions: PropTypes.func.isRequired
-    })
+    redux: PropTypes.object
   },
   componentWillMount(){
     this.props.appActions.initialize();
@@ -52,7 +49,6 @@ const Opsee = React.createClass({
     //user log in
     if (nextProps.redux.user.get('auth') && !this.props.redux.user.get('auth')){
       this.props.appActions.initialize();
-      this.props.envActions.getBastions();
     }
   },
   getMeatClass(){
