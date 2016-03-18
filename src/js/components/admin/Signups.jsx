@@ -158,7 +158,6 @@ const Signups = React.createClass({
       const color = bastion.status === 'active' ? 'success' : 'danger';
       return (
         <div>
-          <strong>Customer ID:</strong>&nbsp;{customer.id}<br/>
           <strong>Bastion ID:</strong>&nbsp;{bastion.id}<br/>
           <strong>Bastion Status:&nbsp;</strong><Color c={color}>{bastion.status}</Color><br/>
           <strong>Bastion Last Seen:</strong>&nbsp;<TimeAgo date={new Date(bastion.last_seen)}/>
@@ -182,6 +181,7 @@ const Signups = React.createClass({
                 {icon}&nbsp;{user.name}&nbsp;-&nbsp;<a href={'mailto:' + user.email}>{user.email}</a>
               </Heading>
               <Padding b={1}>
+                <strong>Customer ID:</strong>&nbsp;{customer.id}<br/>
                 {this.renderBastionInfo(customer)}
                 <strong>Customer Created:</strong>&nbsp;<TimeAgo date={user.created_at}/>
                 <Padding t={1} className="display-flex">
