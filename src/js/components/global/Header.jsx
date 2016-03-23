@@ -55,8 +55,18 @@ const Header = React.createClass({
       <ul className="list-unstyled display-flex justify-content-around" style={{margin: 0}}>
         <li>
          <Link to="/" className={style.navbarLink} activeClassName="active">
-           <span className={`${style.navbarTitle}`}>Signups</span>
+           <span className={`${style.navbarTitle}`}>Customers</span>
          </Link>
+       </li>
+       <li>
+        <Link to="/signups" className={style.navbarLink} activeClassName="active">
+         <span className={`${style.navbarTitle}`}>Signups</span>
+        </Link>
+       </li>
+       <li>
+        <Link to="/activations" className={style.navbarLink} activeClassName="active">
+         <span className={`${style.navbarTitle}`}>Activations</span>
+        </Link>
        </li>
        <li>
          {this.renderLoginLink()}

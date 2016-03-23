@@ -21,7 +21,8 @@ export function promiseMiddleware({ dispatch }) {
           status: 'pending',
           time: new Date(),
           id
-        }
+        },
+        meta: action.meta
       });
       return action.payload.then(
         result => {
@@ -31,7 +32,8 @@ export function promiseMiddleware({ dispatch }) {
               time: new Date(),
               status: 'success',
               id
-            }
+            },
+            meta: action.meta
           });
           return dispatch(_.assign({}, action, {payload: result}));
         },
@@ -47,7 +49,8 @@ export function promiseMiddleware({ dispatch }) {
               time: new Date(),
               status: error,
               id
-            }
+            },
+            meta: action.meta
           });
           return dispatch(_.assign({}, action, {payload: error, error: true }));
         }
