@@ -6,7 +6,8 @@ export default function asyncActions(state, action = {type: null}) {
   _.keys(constants).forEach(c => {
     const name = _.camelCase(c.replace(/_ASYNC$/, ''));
     initial[name] = {
-      status: null,
+      status: undefined,
+      meta: undefined,
       history: []
     };
   });
@@ -20,12 +21,12 @@ export default function asyncActions(state, action = {type: null}) {
     if (action.payload.status !== 'pending'){
       //this allows the most recent pending request to trump all previous if the service is slow for some reason
       if (state[stripped] && state[stripped].id === action.payload.id){
-        obj[stripped] = _.assign({}, action.payload, {
+        obj[stripped] = _.assign({}, action.payload, {meta: action.meta}, {
           history: history.concat([action.payload])
         });
       }
     } else {
-      obj[stripped] = _.assign({}, action.payload, {
+      obj[stripped] = _.assign({}, action.payload, {meta: action.meta}, {
         history
       });
     }

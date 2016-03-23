@@ -31,6 +31,7 @@ export function activateSignup(signup) {
   return (dispatch, state) => {
     dispatch({
       type: ADMIN_ACTIVATE_SIGNUP,
+      meta: signup.id,
       payload: new Promise((resolve, reject) => {
         request
         .put(`${config.services.auth}/signups/${signup.id}/activate`)
