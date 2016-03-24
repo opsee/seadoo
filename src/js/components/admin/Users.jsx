@@ -44,13 +44,15 @@ const Signups = React.createClass({
   runGhostAccount(signup){
     this.props.userActions.logout({as: signup.id});
   },
-  runDeleteUser(){
+  /*eslint-disable no-unused-vars*/
+  runDeleteUser(user){
   /*eslint-disable no-alert*/
     return window.alert('this does nothing right now');
     // if (window.confirm(`Delete ${user.email} (#${user.userId || user.id})?`)){
     //   this.props.actions.deleteUser(user);
     // }
     /*eslint-enable no-alert*/
+    /*eslint-enable no-unused-vars*/
   },
   renderButton(signup){
     if (this.isUnapprovedSignup(signup)){
