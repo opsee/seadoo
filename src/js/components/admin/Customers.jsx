@@ -6,14 +6,14 @@ import {bindActionCreators} from 'redux';
 import TimeAgo from 'react-timeago';
 
 import {Toolbar} from 'emissary/src/js/components/global';
-import {Checkmark, Delete, Lock, Person, Mail, Ghost} from 'emissary/src/js/components/icons';
+import {Checkmark, Delete, Lock, Mail, Ghost} from 'emissary/src/js/components/icons';
 import {Grid, Row, Col} from 'emissary/src/js/modules/bootstrap';
 import {Button} from 'emissary/src/js/components/forms';
 import {Padding} from 'emissary/src/js/components/layout';
 import {Color, Heading} from 'emissary/src/js/components/type';
 import {admin as actions, user as userActions, app as appActions} from '../../actions';
 
-const Signups = React.createClass({
+const Customers = React.createClass({
   propTypes: {
     actions: PropTypes.shape({
       getSignups: PropTypes.func,
@@ -38,19 +38,50 @@ const Signups = React.createClass({
   componentWillMount(){
     this.props.actions.getCustomers();
   },
-  getCustomers(){
-    return this.props.redux.admin.customers.toJS();
+  getInitialState(){
+    return {
+      filter: undefined
+    };
+  },
+  getBastion(customer){
+    return _.chain(customer).get('bastion_states').sortBy(b => {
+      return -1 * b.last_seen;
+    }).head().value() || {};
+  },
+  getCustomers(stringFilter){
+    let data = this.props.redux.admin.customers.toJS();
+    const filter = stringFilter || this.state.filter;
+    if (filter){
+      return _.filter(data, customer => {
+        const bastion = this.getBastion(customer);
+        if (filter === 'activeBastion'){
+          return bastion.status === 'active';
+        } else if (filter === 'inactiveBastion'){
+          return bastion.status !== 'active' && bastion.last_seen;
+        }
+        return true;
+      });
+    }
+    return data;
   },
   runGhostAccount(signup){
     this.props.userActions.logout({as: signup.id});
   },
-  runDeleteUser(){
+  runSetFilter(string){
+    const filter = this.state.filter === string ? undefined : string;
+    this.setState({
+      filter
+    });
+  },
+  /*eslint-disable no-unused-vars*/
+  runDeleteUser(user){
   /*eslint-disable no-alert*/
     return window.alert('this does nothing right now');
     // if (window.confirm(`Delete ${user.email} (#${user.userId || user.id})?`)){
     //   this.props.actions.deleteUser(user);
     // }
     /*eslint-enable no-alert*/
+    /*eslint-enable no-unused-vars*/
   },
   renderButton(signup){
     if (this.isUnapprovedSignup(signup)){
@@ -87,9 +118,7 @@ const Signups = React.createClass({
     return null;
   },
   renderBastionInfo(customer){
-    const bastion = _.chain(customer).get('bastion_states').sortBy(b => {
-      return -1 * b.last_seen;
-    }).head().value() || {};
+    const bastion = this.getBastion(customer);
     if (bastion.last_seen){
       const color = bastion.status === 'active' ? 'success' : 'danger';
       return (
@@ -137,18 +166,28 @@ const Signups = React.createClass({
       </Col>
     );
   },
+  renderButtons(){
+    return (
+      <Padding className="display-flex">
+        <Padding r={1}>
+          <Button onClick={this.runSetFilter.bind(null, 'activeBastion')} flat={this.state.filter !== 'activeBastion'} color="success">Active Bastions - {this.getCustomers('activeBastion').length}</Button>
+        </Padding>
+        <Padding r={1}>
+          <Button onClick={this.runSetFilter.bind(null, 'inactiveBastion')} flat={this.state.filter !== 'inactiveBastion'} color="warning">Inactive Bastions - {this.getCustomers('inactiveBastion').length}</Button>
+        </Padding>
+      </Padding>
+    );
+  },
   render() {
     return (
       <div>
-        <Toolbar title="Customers"/>
+        <Toolbar title={`Customers - ${this.props.redux.admin.customers.toJS().length}`}/>
         <Grid>
           <Row>
             <Col xs={12}>
-              <Padding b={1}>
-                <Heading level={3}><Person fill={seed.color.text2} inline/> Customers</Heading>
-                <div className="display-flex-sm flex-wrap">
-                  {this.getCustomers().map(this.renderCustomer)}
-                </div>
+              <Padding b={1} className="display-flex-sm flex-wrap">
+                {this.renderButtons()}
+                {this.getCustomers().map(this.renderCustomer)}
               </Padding>
             </Col>
           </Row>
@@ -168,4 +207,4 @@ const mapDispatchToProps = (dispatch) => ({
   appActions: bindActionCreators(appActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signups);
+export default connect(mapStateToProps, mapDispatchToProps)(Customers);

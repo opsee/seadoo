@@ -13,7 +13,7 @@ import {Padding} from 'emissary/src/js/components/layout';
 import {Heading} from 'emissary/src/js/components/type';
 import {admin as actions, user as userActions, app as appActions} from '../../actions';
 
-const Signups = React.createClass({
+const Activations = React.createClass({
   propTypes: {
     actions: PropTypes.shape({
       getSignups: PropTypes.func,
@@ -102,15 +102,12 @@ const Signups = React.createClass({
   render() {
     return (
       <div>
-        <Toolbar title="Signups"/>
+        <Toolbar title={`Activations - ${this.getApproved().length}`}/>
         <Grid>
           <Row>
             <Col xs={12}>
-              <Padding b={1}>
-                <Heading level={3}><Checkmark fill={seed.color.text2} inline/> Approved</Heading>
-                <div className="display-flex-sm flex-wrap">
-                  {this.getApproved().map(this.renderItem)}
-                </div>
+              <Padding b={1} className="display-flex-sm flex-wrap">
+                {this.getApproved().map(this.renderItem)}
               </Padding>
             </Col>
           </Row>
@@ -130,4 +127,4 @@ const mapDispatchToProps = (dispatch) => ({
   appActions: bindActionCreators(appActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signups);
+export default connect(mapStateToProps, mapDispatchToProps)(Activations);
