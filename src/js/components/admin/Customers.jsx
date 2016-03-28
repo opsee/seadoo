@@ -48,14 +48,15 @@ const Customers = React.createClass({
       return -1 * b.last_seen;
     }).head().value() || {};
   },
-  getCustomers(){
+  getCustomers(stringFilter){
     let data = this.props.redux.admin.customers.toJS();
-    if (this.state.filter){
+    const filter = stringFilter || this.state.filter;
+    if (filter){
       return _.filter(data, customer => {
         const bastion = this.getBastion(customer);
-        if (this.state.filter === 'activeBastion'){
+        if (filter === 'activeBastion'){
           return bastion.status === 'active';
-        } else if (this.state.filter === 'inactiveBastion'){
+        } else if (filter === 'inactiveBastion'){
           return bastion.status !== 'active' && bastion.last_seen;
         }
         return true;
@@ -169,10 +170,10 @@ const Customers = React.createClass({
     return (
       <Padding className="display-flex">
         <Padding r={1}>
-          <Button onClick={this.runSetFilter.bind(null, 'activeBastion')} flat={this.state.filter !== 'activeBastion'} color="success">Active Bastions</Button>
+          <Button onClick={this.runSetFilter.bind(null, 'activeBastion')} flat={this.state.filter !== 'activeBastion'} color="success">Active Bastions - {this.getCustomers('activeBastion').length}</Button>
         </Padding>
         <Padding r={1}>
-          <Button onClick={this.runSetFilter.bind(null, 'inactiveBastion')} flat={this.state.filter !== 'inactiveBastion'} color="warning">Inactive Bastions</Button>
+          <Button onClick={this.runSetFilter.bind(null, 'inactiveBastion')} flat={this.state.filter !== 'inactiveBastion'} color="warning">Inactive Bastions - {this.getCustomers('inactiveBastion').length}</Button>
         </Padding>
       </Padding>
     );
@@ -180,7 +181,7 @@ const Customers = React.createClass({
   render() {
     return (
       <div>
-        <Toolbar title="Customers"/>
+        <Toolbar title={`Customers - ${this.props.redux.admin.customers.toJS().length}`}/>
         <Grid>
           <Row>
             <Col xs={12}>

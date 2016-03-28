@@ -105,15 +105,12 @@ const Signups = React.createClass({
   render() {
     return (
       <div>
-        <Toolbar title="Signups"/>
+        <Toolbar title={`Signups - ${this.getUnapproved().length}`}/>
         <Grid>
           <Row>
             <Col xs={12}>
-              <Padding b={1}>
-                <Heading level={3}>Unapproved</Heading>
-                <div className="display-flex-sm flex-wrap">
-                  {this.getUnapproved().map(this.renderItem)}
-                </div>
+              <Padding b={1} className="display-flex-sm flex-wrap">
+                {this.getUnapproved().map(this.renderItem)}
               </Padding>
             </Col>
           </Row>
