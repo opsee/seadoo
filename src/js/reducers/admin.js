@@ -22,7 +22,17 @@ export default handleActions({
   },
   [ADMIN_GET_CUSTOMERS]: {
     next(state, action){
-      return _.assign({}, state, {customers: new List(action.payload)});
+      const customers = _.chain(action.payload)
+      .sortBy(customer => {
+        return _.chain(customer)
+        .get('users')
+        .head()
+        .get('created_at')
+        .value();
+      })
+      .reverse()
+      .value();
+      return _.assign({}, state, {customers: new List(customers)});
     },
     throw: yeller.reportAction
   },
