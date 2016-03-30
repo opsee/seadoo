@@ -8,6 +8,7 @@ var seedling = require('seedling');
 var path = require('path');
 var node_modules = path.resolve(__dirname, 'node_modules');
 var emissaryDir = path.resolve(__dirname, 'node_modules/emissary');
+var graphiqlDir = path.resolve(__dirname, 'node_modules/graphiql');
 var srcDir = path.join(__dirname, '/src');
 var configDir = path.join(__dirname, '/config');
 
@@ -85,7 +86,12 @@ var config = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader?module&localIdentName=[path][name]-[local]!postcss',
-        // exclude: [node_modules]
+        exclude: [graphiqlDir]
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!postcss',
+        include: [graphiqlDir]
       },
       {
         test: /\.json$/,
