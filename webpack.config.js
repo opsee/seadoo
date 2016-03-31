@@ -107,7 +107,7 @@ var config = {
   noParse:vendors.map(v => `${node_modules}/${v}`),
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.svg', '.png', '.jpg'],
-    modulesDirectories: ['node_modules']
+    modulesDirectories: ['node_modules', 'src/js']
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -115,7 +115,8 @@ var config = {
     definePlugin,
     new HtmlWebpackPlugin({
       hash:false,
-      template:'src/index.html'
+      template:'src/index.html',
+      favicon: 'src/img/favicon/favicon.ico'
     }),
     commonsPlugin
   ]
