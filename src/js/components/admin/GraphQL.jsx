@@ -7,6 +7,7 @@ import graphistyle from 'graphiql/graphiql.css';
 /*eslint-enable no-unused-vars*/
 import style from './graphql.css';
 import config from 'modules/config';
+import introspection from 'modules/introspection';
 
 const Page = React.createClass({
   propTypes: {
@@ -26,7 +27,11 @@ const Page = React.createClass({
     }
     return this.props.redux.user.get('auth');
   },
-  getFetch(params){
+  getFetch(params = {}){
+    let query = _.pick(params, ['query']);
+    if (Object.keys(params).length === 0 || !_.get(query, 'query')){
+      query = {query: introspection};
+    }
     return fetch(
       `${config.services.compost}/admin/graphql`,
       {
@@ -35,7 +40,7 @@ const Page = React.createClass({
           'Content-Type': 'application/json',
           'Authorization': this.getAuth()
         },
-        body: JSON.stringify(_.pick(params, ['query']))
+        body: JSON.stringify(query)
       }).then(response => response.json());
   },
   handleInputChange(e){

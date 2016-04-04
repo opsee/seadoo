@@ -128,7 +128,11 @@ if (process.env.NODE_ENV === 'production'){
   config.plugins.push(new ExtractTextPlugin('style.css'));
   config.module.loaders = config.module.loaders.map(item => {
     if (_.isEqual(item.test, /\.css$/)){
-      item.loader = ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[path][name]-[local]!postcss-loader')
+      if (item.loader === 'style-loader!css-loader?module&localIdentName=[path][name]-[local]!postcss'){
+        item.loader = ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[path][name]-[local]!postcss-loader');
+      } else {
+        item.loader = ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader');
+      }
     }
     return item;
   });
