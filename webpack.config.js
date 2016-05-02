@@ -21,7 +21,7 @@ var definePlugin = new webpack.DefinePlugin({
 
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js');
 
-var vendors = ['lodash', 'react', 'moment', 'slate', 'newforms', 'react-bootstrap', 'immutable', 'q', 'react-router', 'superagent', 'fuzzy', 'react-document-title', 'react-timeago'];
+var vendors = ['lodash', 'react', 'moment', 'newforms', 'react-bootstrap', 'immutable', 'q', 'react-router', 'superagent', 'fuzzy', 'react-document-title', 'react-timeago'];
 
 var uglify = new webpack.optimize.UglifyJsPlugin({
   mangle: true,
