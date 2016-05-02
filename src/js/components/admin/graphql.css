@@ -1,0 +1,9 @@
+.container{
+  display:flex;
+  flex-direction: column;
+  min-height:90vh;
+}
+
+:global #graphiql-container{
+  flex:1;
+}

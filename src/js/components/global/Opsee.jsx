@@ -70,7 +70,7 @@ const Opsee = React.createClass({
   render() {
     return (
       <div>
-        <DocumentTitle title="Opsee"/>
+        <DocumentTitle title="Seadoo"/>
         <Header user={this.props.redux.user} hide={this.shouldHideNav()}/>
         <Analytics/>
         <div className={this.getMeatClass()}>

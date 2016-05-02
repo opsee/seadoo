@@ -69,6 +69,11 @@ const Header = React.createClass({
         </Link>
        </li>
        <li>
+        <Link to="/graphql" className={style.navbarLink} activeClassName="active">
+         <span className={`${style.navbarTitle}`}>GraphQL</span>
+        </Link>
+       </li>
+       <li>
          {this.renderLoginLink()}
        </li>
       </ul>
