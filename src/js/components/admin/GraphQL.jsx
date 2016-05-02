@@ -28,9 +28,14 @@ const Page = React.createClass({
     return this.props.redux.user.get('auth');
   },
   getFetch(params = {}){
-    let query = _.pick(params, ['query']);
+    let query = _.pick(params, ['query', 'variables']);
     if (Object.keys(params).length === 0 || !_.get(query, 'query')){
       query = {query: introspection};
+    }
+    try {
+      query.variables = JSON.parse(query.variables);
+    } catch (err) {
+      query.variables = null;
     }
     return fetch(
       `${config.services.compost}/admin/graphql`,
