@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import TimeAgo from 'react-timeago';
 
 import {Toolbar} from 'emissary/src/js/components/global';
-import {Checkmark, Delete} from 'emissary/src/js/components/icons';
+import {Delete, Mail} from 'emissary/src/js/components/icons';
 import {Grid, Row, Col} from 'emissary/src/js/modules/bootstrap';
 import {Button} from 'emissary/src/js/components/forms';
 import {Padding} from 'emissary/src/js/components/layout';
@@ -52,21 +52,23 @@ const Signups = React.createClass({
       return -1 * s.created_at;
     }).value();
   },
-  getUnapproved(){
-    return _.filter(this.getData(), this.isUnapprovedSignup);
+  getUnclaimed(){
+    return _.filter(this.getData(), this.isUnclaimed);
   },
-  isUnapprovedSignup(s){
-    return !s.customer_id && !s.activated;
+  isUnclaimed(s){
+    return !s.customer_id && !s.claimed;
   },
   isActivating(signup){
     const item = this.props.redux.asyncActions.adminActivateSignup;
     return item.status === 'pending' && item.meta === signup.id;
   },
   runActivateSignup(signup){
-    this.props.actions.activateSignup(signup);
+    /*eslint-disable no-alert*/
+    if (window.confirm(`Resend Email to ${signup.email}?`)){
+      this.props.actions.activateSignup(signup);
+    }
   },
   runDeleteSignup(signup){
-    /*eslint-disable no-alert*/
     if (window.confirm(`Delete ${signup.email} (#${signup.id})?`)){
       this.props.actions.deleteSignup(signup);
     }
@@ -92,7 +94,7 @@ const Signups = React.createClass({
                   <Button flat color="danger" sm onClick={this.runDeleteSignup.bind(null, signup)} title="Delete this signup"><Delete fill="danger"/></Button>
                 </div>
                 <div>
-                  <Button flat color="success" disabled={this.isActivating(signup)} onClick={this.runActivateSignup.bind(null, signup)}><Checkmark fill="success" inline/> {this.isActivating(signup) ? 'Pending...' : 'Activate'}</Button>
+                  <Button flat color="primary" onClick={this.runActivateSignup.bind(null, signup)}><Mail fill="primary" inline/> Resend Email</Button>
                 </div>
               </div>
               </div>
@@ -105,12 +107,12 @@ const Signups = React.createClass({
   render() {
     return (
       <div>
-        <Toolbar title={`Signups - ${this.getUnapproved().length}`}/>
+        <Toolbar title={`Signups - ${this.getUnclaimed().length}`}/>
         <Grid>
           <Row>
             <Col xs={12}>
               <Padding b={1} className="display-flex-sm flex-wrap">
-                {this.getUnapproved().map(this.renderItem)}
+                {this.getUnclaimed().map(this.renderItem)}
               </Padding>
             </Col>
           </Row>
