@@ -76,10 +76,9 @@ const Customers = React.createClass({
   /*eslint-disable no-unused-vars*/
   runDeleteUser(user){
   /*eslint-disable no-alert*/
-    return window.alert('this does nothing right now');
-    // if (window.confirm(`Delete ${user.email} (#${user.userId || user.id})?`)){
-    //   this.props.actions.deleteUser(user);
-    // }
+    if (window.confirm(`Delete ${user.email} (#${user.userId || user.id})?`)){
+      this.props.actions.deleteUser(user);
+    }
     /*eslint-enable no-alert*/
     /*eslint-enable no-unused-vars*/
   },
